@@ -8,46 +8,55 @@ class AppTrader:
     @property
     def name_account(self):
         return self.__name_account
+        #use property(getter) because it's private 
+        #the value can't be accessed out of the scope of the class
 
     @property
     def nome_crypto(self):
         return self.__nome_crypto
-        #use property because it's private 
 
     @nome_crypto.setter
-    def nome_crypto(self, n_cont):
-        self.__nome_crypto = n_cont    
+    def nome_crypto(self, nome_crypto):
+        self.__nome_crypto = nome_crypto
 
-
-    def buy(self):
-        print(f"Selling {self.__nome_crypto}")
 
     def sell(self):
-        print(f"Buying {self.__nome_crypto}")
+        if self.nome_crypto == None:
+            print('Error')
+        else:
+            print(f"Selling")
+
+    def buy(self):
+        if self.nome_crypto == None:
+            print('Error')
+        else:
+            print(f"Buying")
 
 
 class Account:
-    def __init__(self, name: Type[AppTrader]) -> None:
-        self.name = name
-
-    def conta_comprar(self, trader: Type[AppTrader]):
+    def conta_comprar(trader: Type[AppTrader]):
         trader.buy()
 
-    def conta_vender(self, trader: Type[AppTrader]):
+    def conta_vender(trader: Type[AppTrader]):
         trader.sell()
 
 class Crypto:
-    #def __init__(self, name_m):
-        #self.__name_m = name_m
-    
-    #@property
-    #def name_m(self):
-        #return self.__name_m
+    def __init__(self, name_of_crypto: str):
+        self.name_of_crypto = name_of_crypto
 
     def add_crypto(self):
-        print(f'Adding...')
+        print(f'Adding {self.name_of_crypto} coin on the database of AppTrader...')
 
 
-app_blockchain = AppTrader('Geovana_hck')
-shiba_inu = Crypto()
-app_blockchain.nome_crypto(shiba_inu)
+cc = AppTrader('Hacker01')
+#name of account of app
+
+acc_action = Account
+#creating account that could be used at the future
+
+coin = Crypto('Shiba')
+#giving a name to crypto on Crypto() and on the setter of AppTrader
+
+cc.nome_crypto = coin
+cc.nome_crypto.add_crypto()
+acc_action.conta_comprar(cc)
