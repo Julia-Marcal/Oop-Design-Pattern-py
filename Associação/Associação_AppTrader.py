@@ -13,7 +13,7 @@ class AppTrader:
 
     @property
     def nome_crypto(self):
-        return self.__nome_crypto
+        return self.__nome_crypto 
 
     @nome_crypto.setter
     def nome_crypto(self, nome_crypto):
