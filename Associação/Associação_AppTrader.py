@@ -34,10 +34,10 @@ class AppTrader:
 
 
 class Account:
-    def conta_comprar(trader: Type[AppTrader]):
+    def account_buy(trader: Type[AppTrader]):
         trader.buy()
 
-    def conta_vender(trader: Type[AppTrader]):
+    def account_sell(trader: Type[AppTrader]):
         trader.sell()
 
 class Crypto:
@@ -59,4 +59,4 @@ coin = Crypto('Shiba')
 
 cc.nome_crypto = coin
 cc.nome_crypto.add_crypto()
-acc_action.conta_comprar(cc)
+acc_action.account_buy(cc)
