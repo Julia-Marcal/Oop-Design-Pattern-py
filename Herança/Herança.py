@@ -18,6 +18,9 @@ class Bicycle(Vehicle):
 
 
 class Car(Vehicle):
+    def __init__(self, name, year):
+        super().__init__(name, year)
+
     def DocumentationToPay(self):
         print(f'As your vehicle is a {self.classname} you have to pay 3000$ for your documentation')
 
